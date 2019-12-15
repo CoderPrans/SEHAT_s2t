@@ -22,7 +22,9 @@ TRANSCRIPT=$(echo $RESULTS | jq -r '.alternatives[].transcript')
 
 for word in $TRANSCRIPT
 do
-    echo "$word :: "$(grep $word commands.txt) >> temp 
+    if [ ${#word} -gt 3 ]; then
+        echo "$word :: "$(ag -i $word commands.txt) >> temp 
+    fi
 done
 
 cat temp
