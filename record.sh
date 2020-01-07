@@ -10,7 +10,7 @@ echo
 
 KEY=$(cat apiKey)
 
-RESULTS=$(curl -# -X POST -u "apikey:$KEY" \
+RESULTS=$(curl -X POST -u "apikey:$KEY" \
    --header "Content-Type: audio/wav" \
    --data-binary @test.wav \
   "https://gateway-lon.watsonplatform.net/speech-to-text/api/v1/recognize" | \
